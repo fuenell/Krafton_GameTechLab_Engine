@@ -11,6 +11,7 @@ enum class EComparisonFunc
       // 필요시 추가
     Disable,
     LessEqualReadOnly,
+    Decal
 };
 class URHIDevice
 {
@@ -42,6 +43,7 @@ public:
 
     // update
     virtual void UpdateConstantBuffers(const FMatrix& ModelMatrix, const FMatrix& ViewMatrix, const FMatrix& ProjMatrix) = 0;
+    virtual void UpdateDecalConstantBuffers(const FMatrix& InVPMatrix) = 0;
     virtual void UpdateBillboardConstantBuffers(const FVector& pos, const FMatrix& ViewMatrix, const FMatrix& ProjMatrix, const FVector& CameraRight, const FVector& CameraUp)=0;
     virtual void UpdatePixelConstantBuffers(const FObjMaterialInfo& InMaterialInfo, bool bHasMaterial, bool bHasTexture) = 0;
     virtual void UpdateHighLightConstantBuffers(const uint32 InPicked, const FVector& InColor, const uint32 X, const uint32 Y, const uint32 Z, const uint32 Gizmo) = 0;

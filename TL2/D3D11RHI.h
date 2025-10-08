@@ -45,6 +45,7 @@ public:
 
     void UpdateConstantBuffers(const FMatrix& ModelMatrix, const FMatrix& ViewMatrix, const FMatrix& ProjMatrix) override;
     void UpdateViewConstantBuffers( const FMatrix& ViewMatrix, const FMatrix& ProjMatrix) ;
+    void UpdateDecalConstantBuffers(const FMatrix& VPMatrix);
     void UpdateModelConstantBuffers(const FMatrix& ModelMatrix) ;
     void UpdateBillboardConstantBuffers(const FVector& pos, const FMatrix& ViewMatrix, const FMatrix& ProjMatrix, const FVector& CameraRight, const FVector& CameraUp) override;
     void UpdatePixelConstantBuffers(const FObjMaterialInfo& InMaterialInfo, bool bHasMaterial, bool bHasTexture) override;
@@ -121,8 +122,9 @@ private:
     ID3D11DepthStencilState* DepthStencilStateLessEqualWrite = nullptr;      // 기본
     ID3D11DepthStencilState* DepthStencilStateLessEqualReadOnly = nullptr;   // 읽기 전용
     ID3D11DepthStencilState* DepthStencilStateAlwaysNoWrite = nullptr;       // 기즈모/오버레이
-    ID3D11DepthStencilState* DepthStencilStateDisable = nullptr;              // 깊이 테스트/쓰기 모두 끔
+    ID3D11DepthStencilState* DepthStencilStateDisable = nullptr;             // 깊이 테스트/쓰기 모두 끔
     ID3D11DepthStencilState* DepthStencilStateGreaterEqualWrite = nullptr;   // 선택사항
+    ID3D11DepthStencilState* DepthStencilStateTestOnWriteOff = nullptr;      // 
 
     ID3D11BlendState* BlendState{};
 
@@ -138,6 +140,7 @@ private:
     ID3D11Buffer* ColorCB{};
     ID3D11Buffer* PixelConstCB{};
     ID3D11Buffer* UVScrollCB{};
+    ID3D11Buffer* DecalCB{};
 
     ID3D11Buffer* ConstantBuffer{};
 

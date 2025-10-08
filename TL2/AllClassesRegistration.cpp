@@ -11,6 +11,8 @@
 #include "StaticMeshActor.h"
 #include "MeshLoader.h"
 #include "LineComponent.h"
+#include "BillboardComponent.h"
+#include "DecalComponent.h"
 #include "Line.h"
 
 #include "UI/Factory/UIWindowFactory.h"
@@ -73,6 +75,7 @@ IMPLEMENT_CLASS(ULineComponent)
 IMPLEMENT_CLASS(ULine)
 IMPLEMENT_CLASS(UTextRenderComponent)
 IMPLEMENT_CLASS(UBillboardComponent)
+IMPLEMENT_CLASS(UDecalComponent)
 
 // Managers / Systems
 IMPLEMENT_CLASS(UInputManager)

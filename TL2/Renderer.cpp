@@ -117,6 +117,92 @@ void URenderer::UpdateUVScroll(const FVector2D& Speed, float TimeSec)
     RHIDevice->UpdateUVScrollConstantBuffers(Speed, TimeSec);
 }
 
+void URenderer::DrawDecalIndexedPrimitiveComponent(UStaticMesh* InMesh, D3D11_PRIMITIVE_TOPOLOGY InTopology, UDecalComponent* InDecal)
+{
+    URenderingStatsCollector& StatsCollector = URenderingStatsCollector::GetInstance();
+
+    // 디버그: StaticMesh 렌더링 통계
+
+    UINT stride = 0;
+    switch (InMesh->GetVertexType())
+    {
+    case EVertexLayoutType::PositionColor:
+        stride = sizeof(FVertexSimple);
+        break;
+    case EVertexLayoutType::PositionColorTexturNormal:
+        stride = sizeof(FVertexDynamic);
+        break;
+    case EVertexLayoutType::PositionBillBoard:
+        stride = sizeof(FBillboardVertexInfo_GPU);
+        break;
+    default:
+        // Handle unknown or unsupported vertex types
+        assert(false && "Unknown vertex type!");
+        return; // or log an error
+    }
+    UINT offset = 0;
+
+    ID3D11Buffer* VertexBuffer = InMesh->GetVertexBuffer();
+    ID3D11Buffer* IndexBuffer = InMesh->GetIndexBuffer();
+    uint32 VertexCount = InMesh->GetVertexCount();
+    uint32 IndexCount = InMesh->GetIndexCount();
+
+    RHIDevice->GetDeviceContext()->IASetVertexBuffers(
+        0, 1, &VertexBuffer, &stride, &offset
+    );
+
+    RHIDevice->GetDeviceContext()->IASetIndexBuffer(
+        IndexBuffer, DXGI_FORMAT_R32_UINT, 0
+    );
+
+    RHIDevice->GetDeviceContext()->IASetPrimitiveTopology(InTopology);
+    RHIDevice->PSSetDefaultSampler(0);
+
+    FTextureData* TextureData = UResourceManager::GetInstance().CreateOrGetTextureData(InDecal->TexturePath);
+    RHIDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &(TextureData->TextureSRV));
+
+    if (InMesh->HasMaterial())
+    {
+        const TArray<FGroupInfo>& MeshGroupInfos = InMesh->GetMeshGroupInfo();
+        const uint32 NumMeshGroupInfos = static_cast<uint32>(MeshGroupInfos.size());
+        for (uint32 i = 0; i < NumMeshGroupInfos; ++i)
+        {
+            //const UMaterial* const Material = UResourceManager::GetInstance().Get<UMaterial>(InComponentMaterialSlots[i].MaterialName);
+            //const FObjMaterialInfo& MaterialInfo = Material->GetMaterialInfo();
+            //bool bHasTexture = !(MaterialInfo.DiffuseTextureFileName == FName::None());
+
+            //// 재료 변경 추적
+            //if (LastMaterial != Material)
+            //{
+            //    StatsCollector.IncrementMaterialChanges();
+            //    LastMaterial = const_cast<UMaterial*>(Material);
+            //}
+
+            // 텍스처 변경 추적 (임시로 FTextureData*를 UTexture*로 캠스트)
+            UTexture* CurrentTexture = reinterpret_cast<UTexture*>(TextureData);
+            if (LastTexture != CurrentTexture)
+            {
+                StatsCollector.IncrementTextureChanges();
+                LastTexture = CurrentTexture;
+            }
+
+
+            //RHIDevice->UpdatePixelConstantBuffers(MaterialInfo, true, bHasTexture); // PSSet도 해줌
+
+            // DrawCall 수실행 및 통계 추가
+            RHIDevice->GetDeviceContext()->DrawIndexed(MeshGroupInfos[i].IndexCount, MeshGroupInfos[i].StartIndex, 0);
+            StatsCollector.IncrementDrawCalls();
+        }
+    }
+    else
+    {
+        FObjMaterialInfo ObjMaterialInfo;
+        //RHIDevice->UpdatePixelConstantBuffers(ObjMaterialInfo, false, false); // PSSet도 해줌
+        RHIDevice->GetDeviceContext()->DrawIndexed(IndexCount, 0, 0);
+        StatsCollector.IncrementDrawCalls();
+    }
+}
+
 void URenderer::DrawIndexedPrimitiveComponent(UStaticMesh* InMesh, D3D11_PRIMITIVE_TOPOLOGY InTopology, const TArray<FMaterialSlot>& InComponentMaterialSlots)
 {
     URenderingStatsCollector& StatsCollector = URenderingStatsCollector::GetInstance();
@@ -321,6 +407,13 @@ void URenderer::SetViewModeType(EViewModeIndex ViewModeIndex)
         RHIDevice->UpdateColorConstantBuffers(FVector4{ 1.f, 0.f, 0.f, 1.f });
     else
         RHIDevice->UpdateColorConstantBuffers(FVector4{ 1.f, 1.f, 1.f, 0.f });
+}
+
+// (Blend ON, Depth Test ON, Depth Write OFF 등)
+void URenderer::SetDecalRenderState()
+{
+    OMSetBlendState(true);
+    OMSetDepthStencilState(EComparisonFunc::Decal);
 }
 
 void URenderer::EndFrame()

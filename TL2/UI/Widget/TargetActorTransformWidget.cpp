@@ -14,6 +14,7 @@
 #include "ResourceManager.h"    
 #include "SceneComponent.h"    
 #include "TextRenderComponent.h"    
+#include "DecalComponent.h"    
 #include <filesystem>
 #include <vector>
 
@@ -184,7 +185,8 @@ void UTargetActorTransformWidget::RenderWidget()
 			{ "StaticMesh Component", UStaticMeshComponent::StaticClass() },
 			{ "Text Component", UTextRenderComponent::StaticClass() },
 			{ "Scene Component", USceneComponent::StaticClass() },
-			{ "Billboard Component", UBillboardComponent::StaticClass() }
+			{ "Billboard Component", UBillboardComponent::StaticClass() },
+			{ "Decal Component", UDecalComponent::StaticClass() }
 		};
 
 		// 컴포넌트 추가 메뉴

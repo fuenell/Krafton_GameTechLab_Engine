@@ -2,6 +2,7 @@
 #include "BillboardComponent.h"
 #include "RHIDevice.h"
 #include "LineDynamicMesh.h"
+#include <DecalComponent.h>
 
 class UStaticMeshComponent;
 class UTextRenderComponent;
@@ -39,6 +40,7 @@ public:
 
     void UpdateColorBuffer(const FVector4& Color);
 
+    void DrawDecalIndexedPrimitiveComponent(UStaticMesh* InMesh, D3D11_PRIMITIVE_TOPOLOGY InTopology, UDecalComponent* InDecal);
     void DrawIndexedPrimitiveComponent(UStaticMesh* InMesh, D3D11_PRIMITIVE_TOPOLOGY InTopology, const TArray<FMaterialSlot>& InComponentMaterialSlots);
 
     void UpdateUVScroll(const FVector2D& Speed, float TimeSec);
@@ -48,6 +50,7 @@ public:
                                        D3D11_PRIMITIVE_TOPOLOGY InTopology);
 
     void SetViewModeType(EViewModeIndex ViewModeIndex);
+    void SetDecalRenderState();
     // Batch Line Rendering System
     void BeginLineBatch();
     void AddLine(const FVector& Start, const FVector& End, const FVector4& Color = FVector4(1.0f, 1.0f, 1.0f, 1.0f));
