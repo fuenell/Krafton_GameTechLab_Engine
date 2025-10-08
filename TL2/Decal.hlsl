@@ -157,25 +157,7 @@ float4 mainPS(PS_INPUT input) : SV_TARGET
         discard;
     }
     
-    float4 pixel = g_DiffuseTexColor.Sample(g_Sample, input.decalPos.xy);
-    return g_DiffuseTexColor.Sample(g_Sample, input.decalPos.xy);
-    
-    // Lerp the incoming color with the global LerpColor
-    float4 finalColor = float4(1, 0, 0, 1);
-    //finalColor.rgb = lerp(finalColor.rgb, LerpColor.rgb, LerpColor.a) * (1.0f - HasMaterial);
-    //finalColor.rgb += Material.DiffuseColor * HasMaterial;
-    
-    //if (HasMaterial && HasTexture)
-    //{
-    //    float2 uv = input.texCoord + UVScrollSpeed * UVScrollTime;
-    //    finalColor.rgb = g_DiffuseTexColor.Sample(g_Sample, uv);
-    //}
-    //if (Picked == 1)
-    //{
-    //    // 노란색 하이라이트를 50% 블렌딩
-    //    float3 highlightColor = float3(1.0, 1.0, 0.0); // 노란색
-    //    finalColor.rgb = lerp(finalColor.rgb, highlightColor, 0.5);
-    //}
-    return finalColor;
+    float4 pixel = g_DiffuseTexColor.Sample(g_Sample, (input.decalPos.xy + 1) * 0.5f);
+    return pixel;
 }
 
