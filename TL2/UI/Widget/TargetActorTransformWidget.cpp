@@ -745,9 +745,9 @@ void UTargetActorTransformWidget::UpdateTransformFromActor()
 		EditScale = SelectedComponent->GetRelativeScale();
 	}
 
-	// 균등 스케일 여부 판단
-	bUniformScale = (abs(EditScale.X - EditScale.Y) < 0.01f &&
-		abs(EditScale.Y - EditScale.Z) < 0.01f);
+	//// 균등 스케일 여부 판단
+	//bUniformScale = (abs(EditScale.X - EditScale.Y) < 0.01f &&
+	//	abs(EditScale.Y - EditScale.Z) < 0.01f);
 
 	ResetChangeFlags();
 }

@@ -85,28 +85,26 @@ FMatrix UDecalComponent::GetViewProjectionMatrix()
 	InverseTMat.M[3][1] = -Location.Y;
 	InverseTMat.M[3][2] = -Location.Z;
 
-	FMatrix RMat = Rotation.ToMatrix();
+	FMatrix RMat = Rotation.ToMatrix();  // 왜인지 모르겠는데 ToMatrix에서 오른손 좌표계 기준 행렬(=역행렬)을 반환하는 것 같음
 
-	FMatrix ViewMat = InverseTMat * RMat.Transpose();
+	//FMatrix ViewMat = InverseTMat * RMat.Transpose();
+	FMatrix ViewMat = InverseTMat * RMat;
 
-	// x 스케일이 깊이
-	// z 스케일이 높이
-	// y 스케일이 가로
-	// 이걸로 프로젝션 행렬 만들기
 
 	FMatrix ProjMat = FMatrix::Identity();
 	if (Scale.X != 0.0f)
 	{
 		ProjMat.M[0][0] = 2.0f / Scale.X;
 	}
-	if (Scale.Z != 0.0f)
-	{
-		ProjMat.M[1][1] = 2.0f / Scale.Z;
-	}
 	if (Scale.Y != 0.0f)
 	{
-		ProjMat.M[2][2] = 2.0f / Scale.Y;
+		ProjMat.M[1][1] = 2.0f / Scale.Y;
 	}
+	if (Scale.Z != 0.0f)
+	{
+		ProjMat.M[2][2] = 2.0f / Scale.Z;
+	}
+
 
 	return ViewMat * ProjMat;
 }
