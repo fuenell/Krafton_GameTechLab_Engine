@@ -9,6 +9,11 @@ cbuffer ViewProjBuffer : register(b1)
     row_major float4x4 ProjectionMatrix;
 }
 
+cbuffer ColorBuffer : register(b3)
+{
+    float4 LerpColor;
+}
+
 cbuffer DecalViewProjBuffer : register(b6)
 {
     row_major float4x4 DecalViewProjectionMatrix;
@@ -39,7 +44,7 @@ PS_INPUT mainVS(VS_INPUT input)
     output.position = mul(float4(input.position, 1.0f), MVP);
     
     float4x4 DecalMVP = mul(WorldMatrix, DecalViewProjectionMatrix);
-    output.decalPos = mul(float4(input.position, 1.0f), DecalMVP);
+    output.decalPos = mul(float4(input.position, 1.0f), DecalMVP);  // 직교 투영이라 w값을 나누기 않고 버림
     
     return output;
 }
@@ -62,6 +67,9 @@ float4 mainPS(PS_INPUT input) : SV_TARGET
     }
     
     float4 pixel = g_DiffuseTexColor.Sample(g_Sample, (input.decalPos.xy + 1) * 0.5f);
+    
+    pixel.a *= LerpColor.a;
+    
     return pixel;
 }
 

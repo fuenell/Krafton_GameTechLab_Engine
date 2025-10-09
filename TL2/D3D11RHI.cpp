@@ -303,7 +303,7 @@ void D3D11RHI::UpdateDecalConstantBuffers(const FMatrix& InVPMatrix)
 
 	// Unmap을 호출하여 GPU 리소스 접근을 해제
 	DeviceContext->Unmap(DecalCB, 0);
-	DeviceContext->VSSetConstantBuffers(6, 1, &DecalCB); // b1 슬롯
+	DeviceContext->VSSetConstantBuffers(6, 1, &DecalCB); // b6 슬롯
 }
 
 void D3D11RHI::UpdateModelConstantBuffers(const FMatrix& ModelMatrix)

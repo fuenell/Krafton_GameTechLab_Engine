@@ -716,6 +716,21 @@ void UTargetActorTransformWidget::RenderWidget()
 				}
 
 				ImGui::Spacing();
+
+				ImGui::Separator();
+				ImGui::Text("Fade Settings");
+
+				// 1. UDecalComponent에서 현재 FadeAlpha 값을 가져옵니다.
+				//    (이 값을 슬라이더와 연동하기 위한 임시 변수입니다.)
+				float currentAlpha = UDC->GetFadeAlpha();
+
+				// 2. "투명도 (Fade)"라는 이름으로 0.0f ~ 1.0f 범위의 슬라이더를 만듭니다.
+				//    사용자가 슬라이더를 조작하여 currentAlpha 값이 변경되면, SliderFloat 함수는 true를 반환합니다.
+				if (ImGui::SliderFloat("투명도 (Fade)", &currentAlpha, 0.0f, 1.0f))
+				{
+					// 3. 슬라이더 값이 변경되었을 경우에만 컴포넌트의 실제 값을 업데이트합니다.
+					UDC->SetFadeAlpha(currentAlpha);
+				}
 			}
 
 		else

@@ -329,6 +329,8 @@ void UWorld::RenderViewports(ACameraActor* Camera, FViewport* Viewport)
 		// 데칼의 상수 버퍼(ViewProjection 행렬 등)를 업데이트합니다.
 		Renderer->GetRHIDevice()->UpdateDecalConstantBuffers(DecalComponent->GetViewProjectionMatrix());
 
+		Renderer->UpdateColorBuffer(FVector4(0, 0, 0, DecalComponent->GetFadeAlpha()));
+
 		// [임시] 충돌 판정하기 귀찮아서 모든 오브젝트를 데칼과 충돌했다 판정
 		TArray<UPrimitiveComponent*> TargetPrimitives = OpaquePrimitives;
 

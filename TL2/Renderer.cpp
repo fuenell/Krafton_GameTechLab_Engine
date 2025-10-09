@@ -158,7 +158,7 @@ void URenderer::DrawDecalIndexedPrimitiveComponent(UStaticMesh* InMesh, D3D11_PR
     RHIDevice->GetDeviceContext()->IASetPrimitiveTopology(InTopology);
     RHIDevice->PSSetDefaultSampler(0);
 
-    FTextureData* TextureData = UResourceManager::GetInstance().CreateOrGetTextureData(InDecal->TexturePath);
+    FTextureData* TextureData = UResourceManager::GetInstance().CreateOrGetTextureData(InDecal->GetTexturePath());
     RHIDevice->GetDeviceContext()->PSSetShaderResources(0, 1, &(TextureData->TextureSRV));
 
     if (InMesh->HasMaterial())
