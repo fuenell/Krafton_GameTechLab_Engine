@@ -22,6 +22,9 @@ public:
 
     FMatrix GetViewProjectionMatrix();
 
+    FString GetTexturePath() const { return TexturePath; };
+    void SetTexturePath(FString InTexturePath) { TexturePath = InTexturePath; };
+
     FString TexturePath = "Editor/Icon/SpotLight_64x.dds";
 };
 
