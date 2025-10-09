@@ -216,9 +216,9 @@ void D3D11RHI::CreateSamplerState()
 {
 	D3D11_SAMPLER_DESC SampleDesc = {};
 	SampleDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
-	SampleDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
-	SampleDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
-	SampleDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	SampleDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+	SampleDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+	SampleDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
 	SampleDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
 	SampleDesc.MinLOD = 0;
 	SampleDesc.MaxLOD = D3D11_FLOAT32_MAX;
