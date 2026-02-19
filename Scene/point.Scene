@@ -1,0 +1,391 @@
+{
+  "Actors" : {
+    "783" : {
+      "Name" : "스태틱 메시_0",
+      "OwnedComponents" : [{
+          "Id" : 785,
+          "MaterialSlots" : [{
+              "AssetPath" : "Material__30.001",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Material__29.001",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Material__31.001",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Material__33.001",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [-0.116721, -0.004277, 1.033941],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [0.600000, 0.500000, 0.300000],
+          "StaticMesh" : "Data/Model/Box.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 785,
+      "Type" : "AStaticMeshActor"
+    },
+    "786" : {
+      "Name" : "포인트 라이트_0",
+      "OwnedComponents" : [{
+          "AttenuationRadius" : 48.279999,
+          "FalloffExponent" : 2.000000,
+          "Id" : 788,
+          "Intensity" : 0.340000,
+          "LightColor" : [1.000000, 1.000000, 1.000000, 1.000000],
+          "OverrideCameraLightNum" : 0,
+          "ParentId" : 0,
+          "RelativeLocation" : [0.000000, 0.000000, 3.487164],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 1.000000],
+          "ShadowBias" : 0.000000,
+          "ShadowResolutionScale" : 1024,
+          "ShadowSharpen" : 0.000000,
+          "ShadowSlopeBias" : 0.000000,
+          "SourceRadius" : 0.000000,
+          "Temperature" : 6522.299805,
+          "Type" : "UPointLightComponent",
+          "bCastShadows" : true,
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bOverrideCameraLightPerspective" : false,
+          "bTickEnabled" : true,
+          "bUseInverseSquareFalloff" : false
+        }],
+      "RootComponentId" : 788,
+      "Type" : "APointLightActor"
+    },
+    "789" : {
+      "Name" : "AStaticMeshActor_0",
+      "OwnedComponents" : [{
+          "Id" : 791,
+          "MaterialSlots" : [{
+              "Overrides" : {
+                "Scalars" : {
+
+                },
+                "Textures" : {
+
+                },
+                "Vectors" : {
+                  "DiffuseColor" : [0.801410, 0.110687, 0.868726, 1.000000]
+                }
+              },
+              "ParentPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterialInstanceDynamic"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.000000, 0.000000, 0.000000],
+          "RelativeRotationEuler" : [0.000000, 0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 791,
+      "Type" : "AStaticMeshActor"
+    },
+    "792" : {
+      "Name" : "AStaticMeshActor_0",
+      "OwnedComponents" : [{
+          "Id" : 794,
+          "MaterialSlots" : [{
+              "AssetPath" : "M18_Smoke",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [-2.702322, -0.203140, 3.975274],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [0.100000, 0.100000, 0.100000],
+          "StaticMesh" : "Data/Model/smokegrenade.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 794,
+      "Type" : "AStaticMeshActor"
+    },
+    "795" : {
+      "Name" : "AStaticMeshActor_1",
+      "OwnedComponents" : [{
+          "Id" : 797,
+          "MaterialSlots" : [{
+              "AssetPath" : "EYES",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "STONE",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "STONE",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "STONE",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [3.837730, -0.130612, 3.975274],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.200000],
+          "StaticMesh" : "Data/Model/Stone.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 797,
+      "Type" : "AStaticMeshActor"
+    },
+    "798" : {
+      "Name" : "AStaticMeshActor_2",
+      "OwnedComponents" : [{
+          "Id" : 800,
+          "MaterialSlots" : [{
+              "AssetPath" : "Body",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Black",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Window.001",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Bumpers",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Lights",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Bottom",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Tires",
+              "Type" : "UMaterial"
+            }, {
+              "AssetPath" : "Wheels",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.251490, -4.432856, 3.627250],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 1.000000],
+          "StaticMesh" : "Data/Model/Car.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 800,
+      "Type" : "AStaticMeshActor"
+    },
+    "801" : {
+      "Name" : "AStaticMeshActor_3",
+      "OwnedComponents" : [{
+          "Id" : 803,
+          "MaterialSlots" : [{
+              "AssetPath" : "MatID_1.001",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.058083, 2.529515, 3.627250],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 1.000000],
+          "StaticMesh" : "Data/bitten_apple_mid.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 803,
+      "Type" : "AStaticMeshActor"
+    },
+    "804" : {
+      "Name" : "AStaticMeshActor_4",
+      "OwnedComponents" : [{
+          "Id" : 806,
+          "MaterialSlots" : [{
+              "AssetPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.106435, -0.114487, 5.776842],
+          "RelativeRotationEuler" : [0.000000, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 1.000000],
+          "StaticMesh" : "Data/Model/Sphere.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 806,
+      "Type" : "AStaticMeshActor"
+    },
+    "807" : {
+      "Name" : "AStaticMeshActor_0",
+      "OwnedComponents" : [{
+          "Id" : 809,
+          "MaterialSlots" : [{
+              "Overrides" : {
+                "Scalars" : {
+
+                },
+                "Textures" : {
+
+                },
+                "Vectors" : {
+                  "DiffuseColor" : [0.691120, 0.048031, 0.048031, 1.000000]
+                }
+              },
+              "ParentPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterialInstanceDynamic"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.000000, -9.024508, 0.000000],
+          "RelativeRotationEuler" : [-90.000000, 0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 809,
+      "Type" : "AStaticMeshActor"
+    },
+    "810" : {
+      "Name" : "AStaticMeshActor_1",
+      "OwnedComponents" : [{
+          "Id" : 812,
+          "MaterialSlots" : [{
+              "Overrides" : {
+                "Scalars" : {
+
+                },
+                "Textures" : {
+
+                },
+                "Vectors" : {
+                  "DiffuseColor" : [0.003488, 0.622012, 0.903475, 1.000000]
+                }
+              },
+              "ParentPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterialInstanceDynamic"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [13.844902, 0.000000, 0.000000],
+          "RelativeRotationEuler" : [0.000000, -90.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 812,
+      "Type" : "AStaticMeshActor"
+    },
+    "813" : {
+      "Name" : "AStaticMeshActor_2",
+      "OwnedComponents" : [{
+          "Id" : 815,
+          "MaterialSlots" : [{
+              "AssetPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [-20.252867, 0.000000, 0.502981],
+          "RelativeRotationEuler" : [0.000000, 90.000000, -0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 815,
+      "Type" : "AStaticMeshActor"
+    },
+    "816" : {
+      "Name" : "AStaticMeshActor_3",
+      "OwnedComponents" : [{
+          "Id" : 818,
+          "MaterialSlots" : [{
+              "AssetPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterial"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [0.000000, 14.068095, 0.085755],
+          "RelativeRotationEuler" : [90.000008, -0.000000, 0.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 818,
+      "Type" : "AStaticMeshActor"
+    },
+    "819" : {
+      "Name" : "AStaticMeshActor_4",
+      "OwnedComponents" : [{
+          "Id" : 821,
+          "MaterialSlots" : [{
+              "Overrides" : {
+                "Scalars" : {
+
+                },
+                "Textures" : {
+
+                },
+                "Vectors" : {
+                  "DiffuseColor" : [0.000000, 0.922780, 0.099760, 1.000000]
+                }
+              },
+              "ParentPath" : "Shaders/Materials/UberLit.hlsl_LIGHTING_MODEL_PHONG=1",
+              "Type" : "UMaterialInstanceDynamic"
+            }],
+          "ParentId" : 0,
+          "RelativeLocation" : [13.844902, 0.000000, 8.153000],
+          "RelativeRotationEuler" : [180.000000, -10.395988, 180.000000],
+          "RelativeScale" : [1.000000, 1.000000, 0.100000],
+          "StaticMesh" : "Data/Model/Plane.obj",
+          "Type" : "UStaticMeshComponent",
+          "bHiddenInGame" : false,
+          "bIsActive" : true,
+          "bIsVisible" : true,
+          "bTickEnabled" : true
+        }],
+      "RootComponentId" : 821,
+      "Type" : "AStaticMeshActor"
+    }
+  },
+  "NextUUID" : 827,
+  "PerspectiveCamera" : {
+    "FOV" : [60.000000],
+    "FarClip" : [1000.000000],
+    "Location" : [-10.823570, 7.828532, 6.622999],
+    "NearClip" : [0.100000],
+    "Rotation" : [0.000000, 9.899989, -34.701191]
+  },
+  "Version" : 1
+}
