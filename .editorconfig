@@ -1,0 +1,8 @@
+# 모든 파일에 적용
+root = true
+
+[*]
+charset = utf-8
+
+[**/*.{cpp,h}]
+charset = utf-8-bom
